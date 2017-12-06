@@ -1,0 +1,21 @@
+<% questions.forEach(function(question, index) { %>
+<li>
+    <a class="pull-left" href="/user/<%= question.author.name %>"><img src="<%= question.author.avatar %>" alt=""></a>
+    <div class="list-text">
+        <h4>
+            <a href="/question/<%= question._id %>"><%= question.title %></a>
+            <span class="share"><%= question.categoryName %></span>
+            <% if(question.last_reply_author) { %>
+            <span class="reply">
+                    <a href="/question/<%= question._id %>">贡献</a>
+                    <img src="<%= question.last_reply_author.avatar%>" alt="">
+                </span>
+            <% } else { %>
+            <span class="reply"><a href="/question/<%= question._id %>">回复</a></span>
+            <% } %>
+        </h4>
+        <p><%= question.author.name %> 发起了问题 • <span><%= question.comment_num %></span> 个回复 •
+            <span><%= question.click_num%></span> 次浏览 • <%= question.update_time_ago()%></p>
+    </div>
+</li>
+<% }) %>

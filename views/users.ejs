@@ -1,0 +1,56 @@
+
+<!--主体内容-->
+<main>
+    <div class="container">
+        <div class="col-md-8   main-left">
+            <!--标题-->
+            <div class="title">
+                <a href="javascript:;" class="pull-left discover">
+                    <span class="fa fa-user-circle-o"></span>&nbsp;
+                    用户排名
+                </a>
+            </div>
+            <!--用户列表-->
+            <div class="body clearfix">
+                <ul class="users-body">
+                    <% include public/users-page %>
+                </ul>
+                <!--分页-->
+                <div class="btn-group pull-right">
+                    <% if(userNum.length > 5) { %>
+                    <% for(var i = 1; i <= Math.ceil(userNum.length / 5); i++) { %>
+                    <button type="button" class="users-btn btn btn-default"><%= i %></button>
+                    <% } %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 main-right">
+            <div>
+                <% if(!user) { %>
+                <div>
+                    <h4>大白的个人社区</h4>
+                    <span>
+                        您可以 <a href="/login">登录</a> 或 <a href="/register">注册</a>
+                    </span>
+                </div>
+                <hr>
+                <% } %>
+                <div class="advertising">
+                    <h3>友情社区</h3>
+                    <a href="https://cnodejs.org/"><img src="/images/advertising.png" alt=""></a>
+                    <a href="http://www.html-js.com/"><img src="/images/advertising1.png"alt=""></a>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</main>
+<script>
+    $(function () {
+        $('.users-btn:first-of-type').addClass('active')
+    })
+</script>
+

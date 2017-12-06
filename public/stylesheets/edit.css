@@ -1,0 +1,128 @@
+body {
+    background: url(../bg.jpg);
+}
+main {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.6) !important;
+
+}
+main .container {
+    border: 1px solid #E6E6E6;
+    border-radius: 3px;
+    background: #fff;
+}
+.main-left {
+    padding: 0;
+
+}
+.main-right {
+    padding: 20px 20px 0;
+    margin-left: -1px;
+    border-left: 1px solid #e6e6e6;
+}
+.title {
+    height: 70px;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px 20px;
+}
+.title .discover {
+    color: #000;
+    font-size: 16px;
+    margin-top: 12px;
+}
+.title .tab li {
+    float: left;
+    margin-top: 30px;
+    font-size: 12px;
+    padding: 0 15px 7px;
+}
+.title .tab li:hover {
+    border-bottom: 2px solid #155FAA;
+}
+.title .tab a {
+    color: #666;
+}
+.body {
+    padding: 0 20px 20px;
+}
+.body form > div {
+    margin: 40px 0;
+    position: relative;
+}
+.text-danger {
+    position: absolute;
+    color: #a94442;
+    bottom: -32px;
+}
+.body .different select, .body .headline input {
+    width: 50%;
+    height: 34px;
+    line-height: 34px;
+    color: #555;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+.body .headline input {
+    width: 78%;
+}
+.CodeMirror, .CodeMirror-scroll {
+    height: 200px !important;
+}
+.submit input {
+    border: none!important;
+    background-color: #000;
+    color: #fff;
+    height: 38px;
+    padding: 0 10px;
+    line-height: 38px;
+    font-size: 14px;
+    min-width: 120px;
+    border-radius: 4px;
+    outline: none;
+}
+.more {
+    font-size: 12px;
+}
+.main-right > div {
+    border-bottom: 1px solid #eee;
+}
+.main-right > div:last-of-type {
+    border-bottom: none;
+}
+.main-right h4 {
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+.main-right .message div {
+    margin-bottom: 20px;
+}
+.main-right .message a {
+    font-size: 13px;
+}
+.main-right .message p {
+    margin-top: 30px;
+    padding-bottom: 20px;
+    color: #999;
+}
+.main-right img {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.hot div {
+    margin-bottom: 25px;
+}
+.hot div a {
+    font-size: 12px;
+}
+.hot div p {
+    font-size: 12px;
+    color: #999;
+}
+input[disabled]{
+    cursor: no-drop !important;
+    background: #000 !important;
+}

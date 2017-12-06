@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <link rel="icon" href="/images/bitbug_favicon.ico">
+    <link rel="stylesheet" href="/plugins/bootstrap/dist/css/bootstrap.css">
+    <!--加载angularJS-->
+    <script src="/plugins/angular/angular.js"></script>
+    <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="/plugins/js/jquery.1.11.1.js"></script>
+    <script src="/plugins/js/bootstrap.js"></script>
+    <script src="/plugins/js/supersized.3.2.7.min.js"></script>
+    <script src="/plugins/js/supersized-init.js"></script>
+    <script src="/javascripts/controller.js"></script>
+
+</head>
+<body >
+
+<div class="register-container" ng-app="registerApp" ng-controller="registerController" >
+    <h1>
+        <a href="/index">
+            <img style="height: 60px;" src="/images/footer.png" alt="">
+           大白社区
+        </a>
+    </h1>
+    <div class="connect">
+    <p>欢迎注册</p>
+    </div>
+
+    <form ng-submit="postForm()" name="regForm">
+        <div>
+            <input type="text" name="name"  placeholder="您的用户名" ng-model="formData.name" ng-minlength="6" ng-maxlength="12" ng-pattern="/^[a-zA-Z][a-zA-Z0-9_]{5,12}$/" required >
+            <span class="error" ng-cloak ng-show="regForm.name.$invalid && !regForm.name.$pristine">
+                        建议字母开头，至少6个字符,
+            </span>
+        </div>
+        <div>
+            <input id="password" type="password" name="password"  placeholder="输入密码" ng-model="formData.password" ng-pattern="/(?!^\\d+$)(?!^[a-zA-Z]+$)(?!^[_#@]+$).{5,}/" ng-minlength="6" ng-maxlength="20" required>
+            <span class="error" ng-cloak ng-cloak ng-show="regForm.password.$invalid && !regForm.password.$pristine">
+                        密码格式不正确，至少6-20个字符
+            </span>
+        </div>
+        <div>
+            <input id="repassword" type="password" name="repassword"  placeholder="再次输入密码" ng-model="formData.repassword" ng-pattern="/(?!^\\d+$)(?!^[a-zA-Z]+$)(?!^[_#@]+$).{5,}/" ng-minlength="6" ng-maxlength="20" required >
+            <span class="error" ng-cloak ng-show="regForm.repassword.$invalid && !regForm.repassword.$pristine">
+                       请再次输入密码
+            </span>
+        </div>
+
+        <div>
+            <input type="email" name="email" class="email" placeholder="输入邮箱地址" ng-model="formData.email" ng-pattern="/^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/" required>
+            <span class="error" ng-cloak ng-show="regForm.email.$invalid && !regForm.email.$pristine">
+                        请输入正确的email地址
+            </span>
+        </div>
+
+        <button ng-disabled="regForm.$invalid" id="submit" type="submit">注 册</button>
+    </form>
+    <div class="main-footer">
+        <div style="margin-bottom: 40px" class="alert alert-danger" ng-cloak ng-show="error">{{ error }}</div>
+        <div class="alert-success hide ">注册成功,<span>5</span>秒后跳转,请注意查收邮件</div>
+    </div>
+    <a href="/login">
+        <button type="button" class="register-tis">已经有账号？</button>
+    </a>
+
+
+
+</div>
+</body>
+</html>
+<script>
+        $("[type='submit']").click(()=>{
+            let pwd = $("input[name='password']").val();
+            let repwd = $("input[name='repassword']").val();
+            if(pwd != repwd){
+                alert("两次密码不一致!");
+                $("input[name='password']").val("");
+                $("input[name='repassword']").val("");
+                console.log(456);
+                return false;
+            }else {
+//                $('form[name="regForm"]').attr({ ng-submit : "postForm()" });
+            }
+        })
+
+    window.onload = function(){
+        $(".connect p").eq(0).animate({"left":"0%"}, 600);
+        $(".connect p").eq(1).animate({"left":"0%"}, 400);
+    };
+
+
+</script>

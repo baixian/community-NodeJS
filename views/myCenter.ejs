@@ -1,0 +1,139 @@
+
+
+<!--主体内容-->
+<main>
+    <div class="container">
+        <div class="col-md-8 main-left">
+            <ul class="my-top">
+                <!--头像 用户名 个性签名-->
+                <li class="top-head clearfix">
+                    <img class="pull-left my-picture" src="<%= person.avatar %>" alt="">
+                    <div class="list-text pull-left">
+                        <h4>
+                            <span><%= person.name %></span>
+                        </h4>
+                        <p><%= person.motto %></p>
+                        <span id="<%= person._id %>" class="users-follow-btn">
+                            <a href="#">
+                                <% if(msg == 'follow') { %>
+                                <span class="text">取消关注</span>
+                                <% } else { %>
+                                <span class="text">关注</span>
+                                <% } %>
+                            </a>
+                        </span>
+                    </div>
+                </li>
+                <!--积分 注册时间-->
+                <li class="top-body">
+                    <div class="meta">
+                        <a href="javascript:;">
+                            <span class="fa fa-bar-chart-o"></span>
+                            积分<b>: <%= person.score %> </b>
+                        </a>&nbsp;
+                        <a href="javascript:;">
+                            注册时间<b>: <%= person.create_time_ago() %></b>
+                        </a>
+
+                    </div>
+                </li>
+                <!--tab列表-->
+                <li class="top-foot">
+                    <ul class="my-tab clearfix">
+                        <li class="hover">发问<span class="badge"><%= questions.length %></span></li>
+                        <li name="<%= person.name%>" id="<%= person._id %>" class="reply-list">回复<span class="badge"><%= message.length%></span></li>
+                        <li id="<%= person._id %>" class="tab-follow">关注<span class="badge"><%= followQuestion.length%></span></li>
+                        <li>动态</li>
+                    </ul>
+                </li>
+            </ul>
+            <% if(user) { %>
+            <div class="my-bottom">
+                <!--发问列表-->
+                <ul class="problems">
+                    <% include public/question-list %>
+                </ul>
+                <!--回复列表-->
+                <ul class="replys hide">
+                    <h1>回复 <a class="pull-right" href="/user/<%= person.name %>/replys">更多</a></h1>
+                    <% include public/myCenter-reply %>
+                </ul>
+                <!--关注列表-->
+                <ul class="attention hide">
+                    <h1>关注的文章</h1>
+                    <% followQuestion.forEach(function(question, index) { %>
+                    <li style="margin: 10px 0; padding: 10px 0;">
+                        <a href="/question/<%= question._id %>"><%= question.title %></a>
+                        <p style="color: #666;" class="pull-right">作者: <a href="/user/<%= question.author.name %>"><%= question.author.name %></a></p>
+                    </li>
+                    <% }) %>
+                </ul>
+                <!--动态列表-->
+                <ul class="dynamic hide">
+                    <h1>关注的人动态</h1>
+                    <% dynamic.forEach(function(question, index) { %>
+                    <% if(index < 10) { %>
+                    <li style="margin: 10px 0; padding: 10px 0;">
+                        <a href="/user/<%= question.author.name %>"><%= question.author.name %></a></p>在
+                        <time><%= question.create_time_ago() %></time>
+                        发布了
+                        <span><a href="/question/<%= question._id %>"><%= question.title %></a></span>
+                    </li>
+                    <% } %>
+                    <% }) %>
+                </ul>
+            </div>
+            <% } else { %>
+            <div style="text-align: center;margin: 10px;">请 <a href="/login">登录 </a>或 <a href="/register">注册</a></div>
+            <% } %>
+        </div>
+        <div class="plate col-md-4 main-right" id="<%= person.name %>">
+            <!--关注板块-->
+            <% if(user && person._id == user._id) { %>
+            <div class="hot">
+                <h4 class="hot-follow">关注<span><%= personPopulater.follow.length %></span>人
+                    <a data-toggle="modal" data-target="#follow" class="more pull-right followMore">更多</a>
+                    <% include public/myFollows %>
+                </h4>
+                <% if(user) { %>
+                <% personPopulater.follow.forEach(function(person, index) { %>
+                <% if(index < 5) { %>
+                <div class="clearfix">
+                    <img class="pull-left" src="<%= person.avatar %>" alt="">
+                    <span><a href="/user/<%= person.name %>"><%= person.name %></a></span>
+                </div>
+                <% }}) %>
+                <% } %>
+            </div>
+            <% } %>
+            <!--被关注板块-->
+            <div class="hot">
+                <h4>被<span><%= personPopulater.beFollowed.length %></span>人关注
+                    <a data-toggle="modal" data-target="#beFollowed" class="more pull-right beFollowMore">更多</a>
+                    <% include public/beFollowed %>
+                </h4>
+                <% if(user) { %>
+                <% personPopulater.beFollowed.forEach(function(person, index) { %>
+                <% if(index < 5) { %>
+                <div class="clearfix">
+                    <img class="pull-left" src="<%= person.avatar %>" alt="">
+                    <span><a href="/user/<%= person.name %>"><%= person.name %></a></span>
+                </div>
+                <% }}) %>
+                <% } %>
+            </div>
+        </div>
+
+
+    </div>
+</main>
+
+<script>
+    $(function () {
+        // 内容区域tab切换特效
+        $('.my-top .my-tab li').on('click', function () {
+            $(this).addClass('hover').siblings().removeClass('hover');
+            $('.my-bottom ul').eq($(this).index()).removeClass('hide').siblings().addClass('hide');
+        })
+    })
+</script>

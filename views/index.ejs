@@ -1,0 +1,99 @@
+<main>
+    <div class="container main ">
+        <div class="col-md-9 main-left">
+            <div id="myCarousel" class="carousel slide" style="margin-top: 20px">
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="/images/silde1.jpg" alt="First slide">
+                    </div>
+                    <div class="item">
+                        <img src="/images/silde2.jpg" alt="Second slide">
+                    </div>
+                    <div class="item">
+                        <img src="/images/silde3.jpg" alt="Third slide">
+                    </div>
+                </div>
+              <div class="lunbo">
+                  <a class="leftPrev" href="#myCarousel"
+                     data-slide="prev">&lsaquo;</a>
+                  <a class="rightPrev" href="#myCarousel"
+                     data-slide="next">&rsaquo;</a>
+              </div>
+            </div>
+            <div class="title index-title">
+                   <div class="pull-left discover">
+                       <span></span>&nbsp;
+                       <a href="/index" style="color: #000;">
+                           <i class="fa fa-caret-right" aria-hidden="true"></i> 全部
+                       </a>
+                   </div>
+                <ul class="pull-right tab">
+                    <li category="share"><a href="javascript:;">分享</a></li>
+                    <li category="ask"><a href="javascript:;">精华</a></li>
+                    <li category="job"><a href="javascript:;">问答</a></li>
+                </ul>
+            </div>
+            <div class="body index-body">
+                <ul class="index-question">
+                    <% include public/index-questions %>
+                </ul>
+                <!--分页-->
+                <div class="btn-group pull-right">
+                    <% if(allQuestion.length > 5) { %>
+                    <% for(var i = 1; i <= Math.ceil(allQuestion.length / 5); i++) { %>
+                    <button type="button" class="index-btn btn btn-default"><%= i %></button>
+                    <% } %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3  main-right">
+            <% if(user) { %>
+            <!--个人信息-->
+            <div class="message">
+                <h4>个人信息</h4>
+                <div style="text-align: center">
+                    <a href="/user/<%= user.name %>"><img class="" src="<%= user.avatar %>" alt="">
+                    </a>
+                </div>
+                <div>
+                    <a href="/user/<%= user.name %>"><%= user.name %></a></span>
+                    <a href="/user/<%= user.name %>" class="more pull-right">更多</a>
+                </div>
+                <p><%= user.motto %></p>
+            </div>
+            <% } %>
+            <div class="hot">
+                <h4>积分榜 ： <a href="/users" class="more pull-right">更多</a></h4>
+                <% include public/hot-users %>
+            </div>
+            <div class="advertising">
+                <h3>友情社区</h3>
+                <a href="https://cnodejs.org/"><img src="/images/advertising.png" alt=""></a>
+                <a href="http://www.html-js.com/"><img src="/images/advertising1.png"alt=""></a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    $(function () {
+        $('.index-btn:first-of-type').addClass('active')
+        // 内容部分筛选特效
+        $('.main-left .tab li').on('click', function () {
+            $(this).addClass('hover').siblings().removeClass('hover');
+            $('.btn-group').addClass('hide');
+        });
+        $(document).ready(function(){
+            $('#myCarousel').carousel({interval:3000});
+        });
+    })
+
+
+
+</script>

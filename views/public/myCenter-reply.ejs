@@ -1,0 +1,11 @@
+<% message.forEach(function(message, index) { %>
+<% if(index <= 4) { %>
+<li>
+    <p><a href="/question/<%= message.question_id._id %>"><%= message.question_id.title %></a></p>
+    <p class="metas">
+        <a class="comments" href="javascript:;"><span class="fa fa-comment-o"></span> &nbsp;<%= message.question_id.comment_num %></a>
+        <span><%= message.reply_id.content %></span>
+    </p>
+</li>
+<% } %>
+<% }) %>

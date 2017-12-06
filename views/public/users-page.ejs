@@ -1,0 +1,36 @@
+<% users.forEach(function(user, index) { %>
+<li>
+    <% if(index + 1 <= 3) { %>
+    <span style="font-size: 40px; margin-left: -3px !important;" class="fa fa-bookmark pull-left head-icon"></span>
+    <% } else { %>
+    <span class="fa fa-bookmark pull-left head-icon"></span>
+    <% } %>
+    <span class="ranking pull-left"><%= index + 1 %></span>
+    <a class="pull-left" href="/user/<%= user.name %>"><img src="<%= user.avatar %>" alt=""></a>
+    <div class="list-text">
+        <h4>
+            <a href="/user/<%= user.name %>"><%= user.name %></a>
+        </h4>
+        <div class="meta">
+            <a href="javascript:;">
+                <span class="fa fa-bar-chart-o"></span>
+                积分 <b><%= user.score %></b>
+            </a>
+            <a href="javascript:;">
+                <span class="fa fa-file-text-o"></span>
+                发表 <b><%= user.article_count %></b>
+            </a>
+        </div>
+        <p>个性签名: <span><%= user.motto %></span></p>
+        <span id="<%= user._id %>" class="users-follow-btn">
+            <a href="javascript:;">
+                <% if(msg[index] == 'follow') { %>
+                <span class="text">取消关注</span>
+                <% } else { %>
+                <span class="text">关注</span>
+                <% } %>
+            </a>
+        </span>
+    </div>
+</li>
+<% }) %>

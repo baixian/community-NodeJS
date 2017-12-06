@@ -1,0 +1,149 @@
+
+main {
+    margin-top: 30px;
+    min-height: 600px;
+
+}
+main .container {
+    border: 1px solid #E6E6E6;
+    border-radius: 3px;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.6)!important;
+}
+.main-left {
+    padding: 0;
+
+}
+.main-right {
+    padding: 20px 20px 0;
+    margin-left: -1px;
+    border-left: 1px solid #e6e6e6;
+
+}
+.title {
+    height: 70px;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px 20px;
+}
+.title .discover {
+    color: #000;
+    font-size: 20px;
+    margin-top: 12px;
+}
+.body {
+    padding: 0 20px;
+}
+.body li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+.body li:last-child {
+    border-bottom: none;
+}
+.body .head-icon {
+    color: #ffc000;
+    font-size: 30px;
+    margin: 10px 20px 0 0 !important;
+}
+.body li a {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.body a img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+.body .list-text {
+    display: inline-block;
+}
+.body .list-text h4 {
+    font-size: 14px;
+    margin: 15px 0 8px;
+}
+.body .list-text h4 a:hover {
+    color: #709EF4
+}
+.body li {
+    position: relative;
+}
+.list-text .meta {
+    margin: 8px 0;
+}
+.list-text .meta a {
+    color: #666;
+    font-size: 13px;
+    margin-right: 15px;
+}
+.body .list-text p {
+    font-size: 13px;
+    color: #666;
+}
+.users-follow-btn {
+    position: absolute;
+    right: 0;
+    top: 15px;
+    /*min-width: 76px;*/
+    height: 34px;
+    padding: 0 10px;
+    line-height: 34px;
+    font-size: 13px;
+    background-color: #000;
+    color: #fff !important;
+    border-radius: 4px;
+    text-align: center;
+}
+.users-follow-btn:hover {
+    background-color: #000;
+    color: white !important;
+}
+.users-follow-btn a {
+    color: #fff !important;
+    margin: 0 !important;
+}
+.btn-group {
+    margin: 20px 0 30px;
+}
+.btn-group .btn-default {
+    background: #fafafa;
+    border-color: #ddd;
+    color: #999;
+    outline: none;
+}
+.btn-group .btn-default:hover {
+    background: #eee;
+    color: #666;
+}
+.btn-group .btn-default.checked {
+    color: #fff;
+    background: #499EF3 !important;
+    cursor: default;
+    border-color: #499EF3;
+    border-right-color: #ddd;
+}
+ul li {
+    position: relative;
+}
+ul li .ranking {
+    position: absolute;
+    left: 7px;
+    top: 18px;
+    color: #fff;
+}
+.btn:active, .btn.active {
+    cursor: default;
+    background: #499ef3;
+    border: 1px solid #499ef3;
+    color: #fff;
+}
+.advertising {
+    margin-top: 10px;
+}
+.advertising  img {
+    padding: 20px;
+    border-radius: 1px;
+    width: 230px !important;
+    height: 200px !important;
+}

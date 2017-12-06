@@ -1,0 +1,28 @@
+<% users.forEach(function(user, index) { %>
+<li>
+    <% if((pageNum - 1) * 5 + index + 1 <= 3) { %>
+    <span style="font-size: 40px; margin-left: -3px !important;" class="fa fa-bookmark pull-left head-icon"></span>
+    <% } else { %>
+    <span class="fa fa-bookmark pull-left head-icon"></span>
+    <% } %>
+    <span class="ranking pull-left"><%= (pageNum - 1) * 5 + index + 1 %></span>
+    <a class="pull-left" href="/user/<%= user.name %>"><img src="<%= user.avatar %>" alt=""></a>
+    <div class="list-text">
+        <h4>
+            <a href="/user/<%= user.name %>"><%= user.name %></a>
+        </h4>
+        <div class="meta">
+            <a href="javascript:;">
+                <span class="fa fa-bar-chart-o"></span>
+                积分<b><%= user.score %></b>
+            </a>
+            <a href="javascript:;">
+                <span class="fa fa-thumbs-o-up"></span>
+                点赞<b>110</b>
+            </a>
+
+        </div>
+        <p>个性签名: <span><%= user.motto %></span></p>
+    </div>
+</li>
+<% }) %>

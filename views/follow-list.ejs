@@ -1,0 +1,8 @@
+<% users.forEach(function(person, index) { %>
+<li class="clearfix">
+    <img class="pull-left" src="<%= person.avatar %>" alt="">
+    <a style="font-size: 14px" href="/user/<%= person.name %>"><%= person.name %></a>
+    &#x3000;
+    <span class="pull-right" style="font-size: 12px; color: #888;margin-top: 8px"><%= person.motto %></span>
+</li>
+<% }) %>

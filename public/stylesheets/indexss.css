@@ -1,0 +1,218 @@
+
+main {
+    margin-top: 30px;
+}
+
+main .container {
+    border: 1px solid #E6E6E6;
+    border-radius: 3px;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.6)!important;
+}
+.main {
+    background: rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0px 0px 3px #dddddd;
+}
+.main-left {
+    padding: 0;
+
+}
+.main-right {
+    padding: 20px 20px 0;
+    margin-left: -1px;
+    border-left: 1px solid #eee;
+
+}
+.lunbo a {
+    text-decoration: none !important;
+    color: white !important;
+}
+.lunbo a:hover {
+    color: white !important;
+}
+.leftPrev {
+    position: absolute;
+    left: 0;
+    top: 40%;
+    color: #fff!important;
+    font-size: 60px;
+
+}
+.rightPrev {
+    position: absolute;
+    right: 20px;
+    top: 40%;
+    color: #fff;!important;
+    font-size: 60px;
+
+}
+
+.title {
+    height: 70px;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px 20px;
+}
+.title .discover {
+    color: #000;
+    font-size: 16px;
+    margin-top: 12px;
+}
+.title .tab li {
+    float: left;
+    margin-top: 30px;
+    font-size: 12px;
+    padding: 0 15px 7px;
+}
+.title .tab li:hover {
+    border-bottom: 2px solid #155FAA;
+}
+.title .tab li:hover a {
+    color: #333;
+}
+.title .tab a {
+    color: #666;
+}
+.title .tab li.hover {
+    border-bottom: 2px solid #155FAA;
+    font-weight: bold;
+    cursor: default;
+}
+.title .tab li.hover a {
+    color: #333;
+    text-decoration: none;
+}
+.message a :hover {
+    box-shadow: 0px 0px 10px #eb7350 ;
+}
+.body {
+    padding: 40px 20px;
+}
+.body li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+.body li a {
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
+    margin-right: 15px;
+}
+.body a img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.body .list-text {
+    display: inline-block;
+}
+.body .list-text h4 {
+    font-size: 14px;
+    margin: 15px 0 8px;
+}
+.body li {
+    position: relative;
+}
+.body .list-text .reply {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+    font-size: 12px;
+    width: 24px;
+}
+.body .list-text .reply img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-top: 5px;
+}
+.body .list-text .reply a {
+    color: #999;
+    margin: 0;
+}
+.body .list-text .reply a:hover {
+    color: #92AAF6;
+}
+.body .list-text .share {
+    display: inline-block;
+    background: #99CFFF;
+    color: #fff;
+    padding: 1px 2px;
+    border-radius: 2px;
+}
+.body .list-text p {
+    font-size: 12px;
+    color: #999;
+}
+.page {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    background: #ddd;
+    text-align: center;
+    border-radius: 5px;
+    margin: 20px;
+}
+.more {
+    font-size: 12px;
+}
+.main-right {
+    padding: 40px 0;
+}
+.main-right > div {
+    border-bottom: 1px solid #eee;
+}
+.main-right > div:last-of-type {
+    border-bottom: none;
+}
+.main-right h4 {
+    font-size: 14px;
+    padding-bottom: 10px;
+
+}
+.main-right .message div {
+    margin-bottom: 20px;
+}
+.main-right .message a {
+    font-size: 13px;
+}
+.main-right .message p {
+    margin-top: 30px;
+    padding-bottom: 20px;
+    color: #999;
+}
+.main-right img {
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.hot div {
+    margin-bottom: 25px;
+}
+.hot div a {
+    font-size: 12px;
+}
+.hot div p {
+    font-size: 12px;
+    color: #999;
+}
+.btn-group {
+    margin: 20px 0 10px;
+}
+.btn:active, .btn.active {
+    cursor: default;
+    background: #000 !important;
+    border: 1px solid #ccc !important;
+    color: #fff !important;
+}
+.advertising {
+    margin-top: 10px;
+}
+.advertising  img {
+    padding: 20px;
+    border-radius: 1px;
+    width: 250px !important;
+    height: 200px !important;
+}

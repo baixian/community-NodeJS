@@ -1,0 +1,87 @@
+main {
+    margin-top: 30px;
+}
+main .container {
+    border: 1px solid #E6E6E6;
+    border-radius: 3px;
+    background: #fff;
+}
+.main-left {
+    padding: 0;
+    border-right: 1px solid #eee;
+
+}
+
+.main-right {
+    padding: 20px 20px 0;
+    margin-left: -1px;
+
+
+}
+.title {
+    height: 70px;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px 20px;
+}
+.title .discover {
+    color: #000;
+    font-size: 16px;
+    margin-top: 12px;
+}
+.title .tab li {
+    float: left;
+    margin-top: 30px;
+    font-size: 14px;
+    padding: 0 15px 7px;
+}
+.title .tab li:hover {
+    border-bottom: 2px solid #155FAA;
+}
+.title .tab a {
+    color: #666;
+}
+.body {
+    padding: 0 20px 20px;
+}
+.body form > div {
+    margin: 40px 0;
+    position: relative;
+}
+.text-danger {
+    position: absolute;
+    color: #a94442;
+    bottom: -32px;
+}
+.body .different select, .body .headline input {
+    width: 50%;
+    height: 34px;
+    line-height: 34px;
+    color: #555;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+.body .headline input {
+    width: 78%;
+}
+.CodeMirror, .CodeMirror-scroll {
+    height: 200px !important;
+}
+.submit input {
+    border: none!important;
+    background-color: #000;
+    color: #fff;
+    height: 38px;
+    padding: 0 10px;
+    line-height: 38px;
+    font-size: 14px;
+    min-width: 120px;
+    border-radius: 4px;
+    outline: none;
+}
+input[disabled]{
+    cursor: no-drop !important;
+    background: #000 !important;
+}
+

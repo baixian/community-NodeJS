@@ -1,0 +1,14 @@
+
+<li class="read-item" message-id="<%= message._id %>">
+    <p>
+        <a href="/user/<%= message.author_id.name %>"><%= message.author_id.name %></a>
+        在
+        <% if(message.reply_id) { %>
+        <a href="/question/<%= message.question_id._id %>#<%= message.reply_id._id %>"><%= message.question_id.title %></a>
+        <% } else { %>
+        <a href="/question/<%= message.question_id._id %> %>"><%= message.question_id.title %></a>
+        <% } %>
+        中@我
+        <span ng-click="readOne(<%= index %>)" class="sure pull-right"><a href="#">确认已读</a></span>
+    </p>
+</li>

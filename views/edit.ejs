@@ -1,0 +1,61 @@
+
+<!--主体内容-->
+<main ng-app="editApp" ng-controller="editController" id="<%= question._id %>" questionUser="<%= question.author._id %>" userId="<%= user._id %>">
+    <div class="container">
+        <div class="col-lg-12  main-left">
+            <div class="title">
+                <a href="javascript:;" class="pull-left discover">
+                    <span class="fa fa-edit"></span>
+                    编辑
+                </a>
+            </div>
+            <div class="body">
+                <form name="createForm" ng-submit="postForm()">
+                    <div class="different">
+                        <p>问题的分类: </p>
+                        <select name="category" ng-model="formData.category" >
+                            <% categorys.forEach(function (category, index) { %>
+                            <% if(category[0] == question.category) { %>
+                            <option class="selected" catagory="<%= question.category %>" selected value="<%= question.category %>"><%= category[1] %></option>
+                            <% } else { %>
+                            <option value="<%= category[0] %>"><%= category[1] %></option>
+                            <% } %>
+                            <% }) %>
+                        </select>
+                        <div class="text-danger hide">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                            请正确选择板块
+                        </div>
+                    </div>
+                    <div class="headline">
+                        <p>问题的标题: </p>
+                        <input name="title" ng-model="formData.title" ng-minlength="8" ng-maxlength="30"
+                               value="<%= question.title %>" type="text" placeholder="问题标题... ">
+                        <div ng-cloak ng-show="createForm.title.$invalid && !createForm.title.$pristine" class="text-danger">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                            问题的长度不能小于8个字符或者大于30个字符
+                        </div>
+                    </div>
+                    <!--问题补充-->
+                    <div class="supplement">
+                        <p>正文: </p>
+                        <textarea class="markdown" value="<%= question.content %>" name="content" id="question" placeholder="问题支持markdown格式,请注意标记代码"></textarea>
+                        <div class="text-danger markdown-info hide">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                            输入内容不合法
+                        </div>
+                    </div>
+                    <!--发布按钮-->
+                    <div class="submit clearfix">
+                        <input ng-disabled="createForm.$invalid || !isLegal" type="submit" value="修改" class="pull-right">
+                    </div>
+                    <div style="margin: 10px 0;text-align: center" ng-cloak ng-show="error" id="errorbox" class="alert alert-danger">
+                        {{ error }}
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</main>
+

@@ -1,0 +1,67 @@
+<main ng-app="createApp" ng-controller="createController">
+    <div class="container">
+        <div class="col-md-8 main-left">
+            <div class="title">
+                <a href="/index" class="pull-left discover"><i class="fa fa-home" aria-hidden="true">首页 </i></a> &nbsp;
+                <i style="margin-top: 15px" class="fa fa-caret-right" aria-hidden="true">发布问题</i>&nbsp;
+            </div>
+            <div class="body">
+                <form name="createForm" ng-submit="postForm()">
+                    <div class="different">
+                        <h4>问题的分类: </h4>
+                        <select name="category" ng-model="formData.category" >
+                            <% categorys.forEach(function (category, index) { %>
+                            <option value="<%= category[0] %>"><%= category[1] %></option>
+                            <% }) %>
+                        </select>
+                        <div class="text-danger hide">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                            请正确选择板块
+                        </div>
+                    </div>
+                    <div class="headline">
+                        <h4>问题的标题: </h4>
+                        <input name="title" ng-model="formData.title" ng-minlength="8" ng-maxlength="30"
+                               type="text" placeholder="问题标题... " required>
+                        <div ng-cloak ng-show="createForm.title.$invalid && !createForm.title.$pristine" class="text-danger">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                            问题的长度不能小于8个字符或者大于30个字符
+                        </div>
+                    </div>
+                    <div class="supplement">
+                        <p>正文: </p>
+                        <textarea class="markdown" name="content" id="question" placeholder="问题支持markdown格式,请注意标记代码"></textarea>
+                        <div class="text-danger markdown-info hide">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                            输入内容不合法
+                        </div>
+                    </div>
+                    <div class="submit clearfix">
+                        <input ng-disabled="createForm.$invalid || createForm.$pristine || !isLegal" type="submit" value="发布问题" class="pull-left">
+                    </div>
+                    <div style="margin: 10px 0;text-align: center" ng-cloak ng-show="error" id="errorbox" class="alert alert-danger">
+                        {{ error }}
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4 main-right">
+            <div class="">
+                <h4>其他问题</h4>
+               <div style="margin-top: 10px">
+                   <% questionsi.forEach(function (questionsi) {%>
+                   <ul style="text-align: left">
+                       <li>
+                           <a href="/question/<%=questionsi.id%>"><%=questionsi.title%></a>
+                       </li>
+                   </ul>
+                   <%})%>
+               </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</main>
+

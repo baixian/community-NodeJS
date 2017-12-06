@@ -1,0 +1,58 @@
+
+
+<!--主体内容-->
+<main>
+    <div class="container">
+        <!--内容左部分-->
+        <div class="col-lg-9 main-left">
+            <ul class="my-top">
+                <!--头像 用户名 个性签名-->
+                <li class="top-head clearfix">
+                    <img class="pull-left my-picture" src="<%= person.avatar %>" alt="">
+                    <div class="list-text pull-left">
+                        <h4>
+                            <span><%= person.name %></span>
+                        </h4>
+                        <p><%= person.motto %></p>
+                    </div>
+                </li>
+                <!--积分 注册时间-->
+                <li class="top-body">
+                    <div class="meta">
+                        <a href="javascript:;">
+                            <span class="fa fa-bar-chart-o"></span>
+                            积分<b>: <%= person.score%> </b>
+                        </a>&nbsp;
+                        <a href="javascript:;">
+                            注册时间<b>: <%= person.create_time_ago() %></b>
+                        </a>
+
+                    </div>
+                </li>
+            </ul>
+            <!--回复列表-->
+            <div class="my-bottom">
+                <ul class="replys">
+                    <h1>回复</h1>
+                    <% include public/replys-list %>
+                </ul>
+            </div>
+        </div>
+        <!--内容右部分-->
+        <div class="col-lg-3 main-right">
+            <!--关注板块-->
+            <div class="hot">
+                <h4>关注<span>2</span>人<a href="javascript:;" class="more pull-right">更多</a></h4>
+                <div class="clearfix">
+                    <img class="pull-left" src="/images/avatar-mid-img.png" alt="">
+                </div>
+            </div>
+            <!--被关注板块-->
+            <div class="hot">
+                <h4>被<span>2</span>人关注<a href="" class="more pull-right">更多</a></h4>
+            </div>
+        </div>
+    </div>
+</main>
+
+

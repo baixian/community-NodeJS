@@ -1,0 +1,44 @@
+<% comments.forEach(function( comment, index) { %>
+<li class="comment-body-list clearfix" id="<%= comment._id %>" commentId="<%= comment.author._id %>" userId="<%= user %>">
+    <div class="twoReply-content clearfix">
+        <a class="head-img pull-left" href="/user/<%= comment.author.name %>"><img src="<%= comment.author.avatar %>" alt=""></a>
+        <div class="col-lg-11 comment-list-content clearfix">
+            <% if(comment.comment_target_id) { %>
+            <a class="comment-author" href="/user/<%= comment.author.name %>"><%= comment.author.name %></a>&nbsp;回复
+            <a class="comment-author" href="/user/<%= comment.comment_target_id.name %>"><%= comment.comment_target_id.name %></a>
+            <% } else { %>
+            <a class="comment-author" href="/user/<%= comment.author.name %>"><%= comment.author.name %></a>
+            <% } %>
+            <p><%- markdown(comment.content) %></p>
+            <div class="meta">
+                <a href="javascript:;" class="two-like">
+                    <span class="fa fa-thumbs-up"></span>
+                    <%= comment.likes.length %>
+                </a>
+                &nbsp;
+                <a href="javascript:;" class="two-unlike">
+                    <span class="fa fa-thumbs-down"></span>
+                    <%= comment.unlikes.length %>
+                </a>
+                &#x3000;
+                <% if(user) { %>
+                <a href="javascript:;" class="twoReply">
+                    <span class="fa fa-commenting"></span>
+                    回复
+                </a>
+                <% } %>
+                <span class="pull-right"><%= comment.create_time_ago() %></span>
+            </div>
+            <% if(user) { %>
+            <form class="clearfix hide" action="/<%= comment.question_id._id %>/comment">
+                <input type="hidden" name="reply_id" value="<%= comment.reply_id %>">
+                <input type="hidden" name="comment_target_id" value="<%= comment.author._id %>">
+                <div contenteditable placeholder="回复某个人" class="falseDiv"></div>
+                <input type="submit" value="取消" class="reply-somebody reply-somebody-cancel pull-right">
+                <input type="submit" value="评论" class="commentBtn commentBtn2 reply-somebody pull-right" disabled>
+            </form>
+            <% } %>
+        </div>
+    </div>
+</li>
+<% }) %>

@@ -1,0 +1,63 @@
+
+<!--主体内容-->
+<main ng-app="settingApp" ng-controller="settingController">
+    <div class="container ">
+        <div class="main-title">
+            <h4>
+                <a style="color: #000" href="/index"><i class="fa fa-home" aria-hidden="true"> 社区中心 </i></a> <i class="fa fa-caret-right" aria-hidden="true"> &nbsp;设置信息</i>
+            </h4>
+        </div>
+        <div class="main-body">
+            <form id="<%= user._id %>" name="settingForm" ng-submit="postForm()">
+                <h3>基本信息</h3>
+                <div class="message-data clearfix">
+                    <!--基本信息-->
+                    <div class=" col-md-6" >
+                        <dl class="clearfix">
+                            <dt>账号: &nbsp;</dt>
+                            <dd><%= user.name %></dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>邮箱: &nbsp;</dt>
+                            <dd><%= user.email %></dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt><label for="">个性签名: &nbsp;</label></dt>
+                            <dd>
+                                <textarea name="motto" cols="20" rows="5" placeholder="这家伙很懒, 什么都没留下.."
+                                          ng-maxlength="150" ng-model="formData.motto" required><%= user.motto %></textarea>
+                                <div style="height: 20px;">
+                                    <label ng-cloak ng-show="settingForm.motto.$invalid && !settingForm.motto.$pristine">
+                                        <span class="glyphicon glyphicon-info-sign"></span>
+                                        请填写正确的个性签名
+                                    </label>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <!--上传头像-->
+                    <div class=" col-md-6" >
+                        <div>
+                            <dl class="clearfix">
+                                    <dt>
+                                            <input id="avatar" name="avatar" type="file" target="<%= user.avatar %>" value="上传图片">
+                                    </dt>
+                                    <dd>
+                                        <p>更改头像</p>
+                                        <p>支持jpg、gif、png等格式的图片(其他的图片格式不支持)</p>
+                                    </dd>
+
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="message-button">
+                    <input class="setting-button" type="submit" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<link rel="stylesheet" href="/plugins/fileinput/css/fileinput.min.css">
+<script src="/plugins/fileinput/js/fileinput.min.js"></script>
+<script src="/plugins/fileinput/js/locales/zh.js"></script>

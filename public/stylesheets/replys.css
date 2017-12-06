@@ -1,0 +1,153 @@
+
+main {
+    margin-top: 30px;
+}
+main .container {
+    border: 1px solid #E6E6E6;
+    border-radius: 3px;
+    background: #fff;
+}
+.main-left {
+    padding: 0;
+    border-right: 1px solid #e6e6e6;
+}
+.main-right {
+    padding: 20px 20px 0;
+    margin-left: -1px;
+    border-left: 1px solid #e6e6e6;
+}
+.my-top > li {
+    border-bottom: 1px solid #e6e6e6;
+}
+.my-top .top-head {
+    padding: 20px;
+}
+.my-top .my-picture {
+    border-radius: 5px;
+}
+.list-text {
+    width: 600px;
+    padding-left: 15px;
+    position: relative;
+}
+.list-text h4 {
+    font-size: 14px;
+    margin-top: 5px;
+}
+.list-text p {
+    color: #999;
+    font-size: 12px;
+    margin: 15px 0;
+}
+.users-follow-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 34px;
+    padding: 0 10px;
+    line-height: 34px;
+    font-size: 13px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+}
+.users-follow-btn:hover {
+    background-color: #5cb85c;
+}
+.users-follow-btn a {
+    color: #fff;
+    margin: 0 !important;
+}
+.top-body .meta {
+    margin: 8px 0;
+}
+.top-body .meta a {
+    color: #666;
+    font-size: 13px;
+}
+.top-body {
+    padding: 5px 20px;
+}
+
+.my-bottom {
+    padding: 0 22px 40px;
+}
+.my-bottom h1 {
+    margin: 20px 0;
+    font-size: 20px;
+    line-height: 20px;
+}
+.my-bottom li {
+    border-bottom: 1px solid #f5f5f5;
+}
+.my-bottom li .comments {
+    display: inline-block;
+    width: 58px;
+    height: 30px;
+    margin: 0 10px 0 0;
+    padding: 0 10px;
+    background-color: #fff;
+    border: 1px solid #f5f5f5;
+    border-radius: 4px;
+    line-height: 30px;
+    text-align: center;
+    color: #666;
+    font-size: 15px;
+}
+.my-bottom .metas {
+    margin: 15px 0;
+    display: inline-block;
+}
+.my-bottom .metas span {
+    color: #666;
+}
+.my-bottom .markdown-text {
+    display: inline-block;
+    width: 90%;
+}
+.my-bottom .markdown-text a {
+    display: inline-block;
+    word-wrap: break-word;
+    width: 100%;
+}
+
+.more {
+    font-size: 12px;
+}
+.main-right > div {
+    border-bottom: 1px solid #eee;
+}
+.main-right > div:last-of-type {
+    border-bottom: none;
+}
+.main-right h4 {
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+.main-right img {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.hot {
+    margin: 30px 0;
+    color: #666;
+}
+.hot:first-of-type {
+    margin: 0;
+}
+.hot div {
+    margin-bottom: 25px;
+}
+.hot div a {
+    font-size: 12px;
+}
+.hot div p {
+    font-size: 12px;
+    color: #999;
+}
+.markdown-text img {
+    width: 100%;
+}

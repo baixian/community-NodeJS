@@ -1,0 +1,93 @@
+
+<!--主体内容-->
+<main ng-app="messageApp" ng-controller="messageController">
+    <div class="container">
+        <!--内容左部分-->
+        <div class="col-lg-8 main-left">
+            <!--标题栏-->
+            <div class="title">
+                <a href="/index" class="pull-left discover"><i class="fa fa-home" aria-hidden="true">首页</i></a>&nbsp;
+                <i style="margin-top: 20px" class="fa fa-caret-right" aria-hidden="true">消息</i>
+                <ul class="pull-right tab">
+                    <li class="hover"><a href="javascript:;">未读</a></li>
+                    <li><a href="javascript:;">已读</a></li>
+                </ul>
+            </div>
+            <!--消息列表-->
+            <div class="body">
+                <!--未读消息列表-->
+                <ul class="read">
+                    <% if(no_read && no_read.length > 0) { %>
+                    <h3><a href="javascript:;" ng-click="allRead()">全部已读</a></h3>
+                    <% no_read.forEach(function(message, index) { %>
+                    <% if(message.type == 'at') { %>
+                    <% include public/unat %>
+                    <% } else if(message.type == 'reply') { %>
+                    <% include public/unreply %>
+                    <% } else if(message.type == 'comment') { %>
+                    <% include public/uncomment %>
+                    <% } %>
+                    <% }) %>
+                    <% } else { %>
+                    <br>
+                    <p>没有未读消息...</p>
+                    <% } %>
+                </ul>
+                <!--已读消息列表-->
+                <ul class="unread hide">
+                    <% if(read && read.length > 0) { %>
+                    <h3><a href="javascript:;">已读消息</a></h3>
+                    <% read.forEach(function(message, index) { %>
+                    <% if(message.type == 'at') { %>
+                    <% include public/at %>
+                    <% } else if(message.type == 'reply') { %>
+                    <% include public/reply %>
+                    <% } else if(message.type == 'comment') { %>
+                    <% include public/comment %>
+                    <% } %>
+                    <% }) %>
+                    <% } else { %>
+                    <br>
+                    <p>没有已读消息...</p>
+                    <% } %>
+                    <!--分页-->
+                    <div style="margin: 20px 5px" class="btn-group pull-right">
+                        <% for(let i = 1; i <= Math.ceil(readLength/5); i++) { %>
+                        <button type="button" class="pageButton btn btn-default"><%= i %></button>
+                        <% } %>
+                    </div>
+                </ul>
+
+            </div>
+        </div>
+
+        <!--内容右部分-->
+        <div class="col-md-4 main-right">
+
+            <span ><a href="/user/<%= user.name %>"><img style="border: 5px solid #ccc;margin-top: 30px;width: 80px;" src="<%= user.avatar %>" alt=""></a></span>
+            <span style="font-size: 16px">用户名： <a  href="/user/<%= user.name %>"><%= user.name %></a></span>
+            <p style="margin: -30px 0 0 90px!important;font-size: 16px">问题总数:<a href="/index"><%= user.article_count%></a></p>
+            <div style="margin-top: 60px;cursor: pointer" class="guang">
+                <div class="guanggao" style="color: #000;background-color: #ccc;width: 297px;">
+                    关闭
+                </div>
+                <span><a href="https://www.zhihu.com/question/67441952"><img src="/images/ad1.jpg" alt=""></a></span>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+
+<script>
+    $(function () {
+        // 标题栏tab切换特效
+        $('.tab li').on('click', function () {
+            $(this).addClass('hover').siblings().removeClass('hover');
+            $('.body ul').eq($(this).index()).removeClass('hide').siblings().addClass('hide');
+        });
+        $('.guanggao').click(function () {
+            $('.guang').hide();
+        })
+    })
+</script>

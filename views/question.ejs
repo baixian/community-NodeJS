@@ -1,0 +1,128 @@
+<!--主体内容-->
+<main ng-app="questionApp" ng-controller="questionController">
+    <div class="container">
+        <!--左部分-->
+        <div class="col-lg-9 main-left">
+            <div class="detail-all">
+                <div class="detail-share">
+                    <span class="detail-allShare"><a href="javascript:;"><%= question.categoryName %></a></span>
+                </div>
+                <!--标题-->
+                <div class="detail-title">
+                    <h1><%= question.title %></h1>
+                    <% if(user) { %>
+                    <span id="<%= question._id %>" questionAuthor="<%= question.author._id %>" class="detail-follow-btn">
+
+                        <% if(msg == 'follow') { %>
+                        <span class="text" >取消关注</span>
+                        <% } else if(msg == 'unfollow') { %>
+                        <span class="text">关注</span>
+                        <% } %>
+
+                    </span>
+                    <% } %>
+                </div>
+                <!--内容-->
+                <div class="detail-content"><%- markdown(question.content) %></div>
+                <!--对内容操作-->
+                <div class="detail-option">
+                    <span><%= question.update_time_ago() %></span>&#x3000;
+                    <span><%= question.click_num %> 次浏览</span>&#x3000;
+                    <% if(user) { %>
+                    <a class="editQuestion" href="/question/<%= question._id %>/edit"><span class="fa fa-edit"></span> 编辑</a>&#x3000;
+                    <a questionId="<%= question._id %>" class="deleteQuestion" href="javascript:;"><span class="fa fa-remove"></span> 删除</a>
+                    <a style="padding-left: 20px" class="pull-right share" href=""><span class="fa fa-share-square-o"></span> 分享</a>
+                    <div id="share" class="pull-right baiduShare hide" style="box-shadow: 0 0 5px rgba(0,0,0,.2); padding: 5px; border-radius: 3px;margin: -9px -2px 0 0;">
+                        <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a></div>
+                        <script>
+                            window._bd_share_config={
+                                "common":{
+                                    "bdSnsKey":{},
+                                    "bdText":"<%= question.title %>",
+                                    "bdMini":"1",
+                                    "bdMiniList":[
+                                        "qzone","tsina","renren","tqq","tieba","bdhome","thx","meilishuo","diandian","duitang","hx","fx","youdao","sdo","qingbiji","people","xinhua","mail","isohu","yaolan","wealink","ty","iguba","fbook","twi","linkedin","h163","evernotecn","copy","print"
+                                    ],
+                                    "bdPic":"",
+                                    "bdStyle":"2",
+                                    "bdSize":"16"
+                                },
+                                "share":{
+
+                                }
+                            };
+                            with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                        </script>
+                    </div>
+                    <% } %>
+                </div>
+
+                <!--回复区域-->
+                <% include public/reply-list %>
+                <% if(user) { %>
+                <!--回复表单区域-->
+                <div class="leaveMessage">
+                    <form id="reply_form" target="/<%= question._id %>/reply" ng-submit="postForm()">
+                        <div class="leave-head">
+                            <a href="/user/<%= user.name %>"><img src="<%= user.avatar %>" alt=""></a>
+                            <span><%= user.name %></span>
+                        </div>
+                        <div class="leave-body">
+                            <textarea class="markdown" name="" id="question" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="leave-foot"><input id="reply-button" type="submit" class="pull-right" value="提交回答"></div>
+                    </form>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <!--右部分-->
+        <div class="col-lg-3 main-right">
+            <!--发起人板块-->
+            <div class="message">
+                <h4>发起人</h4>
+                <div>
+                    <img  class="pull-left" src="<%= question.author.avatar %>" alt="">
+                    <a href="/user/<%= question.author.name %>"><%= question.author.name %></a></span>
+                    <a href="/user/<%= question.author.name %>" class="more pull-right">关注</a>
+                </div>
+                <p><%= question.author.motto %></p>
+            </div>
+            <!--相关问题板块-->
+            <div class="hot">
+                <h4>相关问题</h4>
+                <% others.forEach(function (other) { %>
+                <p>
+                    <a href="/question/<%= other._id %>"><%= other.title %></a>
+                </p>
+                <% }) %>
+            </div>
+            <!--其它版块-->
+            <div class="other">
+                <h4>其它的板块</h4>
+                <div class="guang">
+                    <div class="guanggao" style="color: #000;background-color: #ccc;">
+                        关闭
+                    </div>
+                    <span>
+                        <a href="http://activity.huaweicloud.com/Octoberactivity/index.html?utm_source=Baidu&utm_medium=brand&utm_campaign=HWC_PC&utm_content=Title&utm_term=%E5%8F%8C%E5%8D%81%E4%B8%80"><img src="/images/guanggao.jpg" alt=""></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</main>
+<script>
+    $(function () {
+        $('.share').add('#share').mouseover(function () {
+            $('#share').removeClass('hide');
+        }).mouseout(function () {
+            $('#share').addClass('hide');
+        });
+        $('.guanggao').click(function () {
+            $('.guang').hide();
+        })
+    })
+</script>

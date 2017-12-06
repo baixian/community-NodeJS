@@ -1,0 +1,13 @@
+
+<li class="read-list hide" i="<%= index + 1 %>">
+    <p>
+        <a href="/user/<%= message.author_id.name %>"><%= message.author_id.name %></a>
+        在
+        <% if(message.reply_id) { %>
+        <a href="/question/<%= message.question_id._id %>#<%= message.reply_id._id %>"><%= message.question_id.title %></a>
+        <% } else { %>
+        <a href="/question/<%= message.question_id._id %> %>"><%= message.question_id.title %></a>
+        <% } %>
+        中@我
+    </p>
+</li>

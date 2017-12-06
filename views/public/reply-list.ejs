@@ -1,0 +1,47 @@
+<!--评论-->
+<% if(replies.length > 0) { %>
+<div class="detail-comment">
+    <div class="comment-head">
+        <h1><%= question.comment_num %>个回复</h1>
+    </div>
+    <div class="comment-body">
+        <ul id="reply-all-list">
+            <!--一级回复部分-->
+            <% replies.forEach(function (reply, index) { %>
+            <li id="<%= reply._id %>" replyId="<%= reply.author._id %>" userId="<%= user %>" class="comment-body-list clearfix">
+                <a class="head-img pull-left" href="/user/<%= reply.author.name %>"><img src="<%= reply.author.avatar %>" alt=""></a>
+                <div class="col-lg-11 comment-list-content">
+                    <a class="comment-author" href="/user/<%= reply.author.name %>"><%= reply.author.name %></a></span>
+                    <p><%- markdown(reply.content) %></p>
+                    <div class="meta">
+                        <a href="javascript:;" class="one-like">
+                            <span class="fa fa-thumbs-up"></span>
+                            <%= reply.likes.length %>
+                        </a>
+                        &nbsp
+                        <a href="javascript:;" class="one-unlike">
+                            <span class="fa fa-thumbs-down"></span>
+                            <%= reply.unlikes.length %>
+                        </a>
+                        &#x3000;
+                        <a href="javascript:;" class="reply">
+                            <span class="fa fa-commenting"></span>
+                            <%= reply.comment_num %> 条回复
+                        </a>
+                        <span class="pull-right"><%= reply.create_time_ago() %></span>
+                    </div>
+                    <% include comment-list %>
+                </div>
+            </li>
+            <% }) %>
+        </ul>
+    </div>
+</div>
+<% } %>
+<% if(question.comment_num > 5) { %>
+<% if(user) { %>
+<div id="showReply" target="<%= question._id %>">查看全部</div>
+<% } else { %>
+<div class="tipLogin" target="<%= question._id %>">请先 <a href="/login">登录</a> 或 <a href="/register">注册</a></div>
+<% } %>
+<% } %>

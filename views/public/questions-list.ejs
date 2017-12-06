@@ -1,0 +1,10 @@
+<h1>发问</h1>
+<% questions.forEach(function(question, index) { %>
+<li>
+    <p><a href="/question/<%= question._id %>"><%= question.title %></a></p>
+    <p class="metas">
+        <a class="comments" href="javascript:;"><span class="fa fa-comment-o"></span> &nbsp;<%= question.comment_num %></a>
+        <span><span><%= question.click_num %></span> 次浏览 • <span>0</span> 个关注 • <%= question.create_time_ago() %></span>
+    </p>
+</li>
+<% }) %>

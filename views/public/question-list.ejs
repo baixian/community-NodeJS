@@ -1,0 +1,12 @@
+<h1>发问 <a class="pull-right questionsMore" href="/user/<%= person.name %>/questions">更多</a></h1>
+<% questions.forEach(function(question, index) { %>
+<% if(index <= 4) { %>
+<li>
+    <p><a href="/question/<%= question._id %>"><%= question.title %></a></p>
+    <p class="metas">
+        <a class="comments" href="#"><span class="fa fa-comment-o"></span> &nbsp;<%= question.comment_num %></a>
+        <span><span><%= question.click_num %></span> 次浏览 • <span>0</span> 个关注 • <%= question.create_time_ago() %></span>
+    </p>
+</li>
+<% } %>
+<% }) %>

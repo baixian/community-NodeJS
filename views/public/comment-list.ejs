@@ -1,0 +1,29 @@
+<!--二级回复部分-->
+<div class="comment-body small-comment-body hide">
+    <ul class="towComment">
+        <li style="text-align: center;padding: 10px" class="clearfix">
+            <%= reply.comment_num %>条评论
+        </li>
+        <div class="loading" style="text-align: center; font-size: 30px">
+            <i class="fa fa-spinner fa-pulse"></i>
+        </div>
+    </ul>
+    <!--分页-->
+    <% if(reply.comment_num > 5) { %>
+    <div class="clearfix">
+        <div style="margin: 20px 5px" class="btn-group pull-right clearfix">
+            <% for(let i = 1; i <= Math.ceil(reply.comment_num/5); i++) { %>
+            <button type="button" class="pageButton pageBtn btn btn-default"><%= i %></button>
+            <% } %>
+        </div>
+    </div>
+    <% } %>
+    <% if(user) { %>
+    <form class="clearfix" action="/<%= reply.question_id %>/comment">
+        <input type="hidden" name="reply_id" value="<%= reply._id %>">
+        <input type="hidden" name="comment_target_id" value="">
+        <textarea class="markdown_comments falseDiv falseDiv-two "></textarea>
+        <input type="submit" value="评论" class="commentBtn commentBtn-two pull-right" disabled>
+    </form>
+    <% } %>
+</div>

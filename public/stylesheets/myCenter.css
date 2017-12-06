@@ -1,0 +1,199 @@
+
+main {
+    margin-top: 30px;
+    min-height: 600px;
+}
+main .container {
+    border: 1px solid #E6E6E6;
+    border-radius: 3px;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.6)!important;
+}
+.main-left {
+    padding: 0;
+    border-right: 1px solid #e6e6e6;
+
+}
+.main-right {
+    padding: 20px 20px 0;
+    margin-left: -1px;
+
+}
+.my-top > li {
+    border-bottom: 1px solid #e6e6e6;
+}
+.my-top .top-head {
+    padding: 20px;
+}
+.my-top .my-picture {
+    border-radius: 5px;
+}
+.list-text {
+    width: 500px;
+    padding-left: 15px;
+    position: relative;
+}
+.list-text h4 {
+    font-size: 14px;
+    margin-top: 5px;
+}
+.list-text p {
+    color: #999;
+    font-size: 12px;
+    margin: 15px 0;
+}
+.users-follow-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 34px;
+    padding: 0 10px;
+    line-height: 34px;
+    font-size: 13px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+}
+.users-follow-btn:hover {
+    background-color: #000;
+}
+.users-follow-btn a {
+    color: #fff !important;
+    margin: 0 !important;
+}
+.top-body .meta {
+    margin: 8px 0;
+}
+.top-body .meta a {
+    color: #666;
+    font-size: 13px;
+}
+.top-body {
+    padding: 5px 20px;
+}
+.top-foot .my-tab {
+    padding: 20px 20px 0;
+}
+.top-foot .my-tab li {
+    float: left;
+    padding: 5px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    color: #666;
+}
+.top-foot .my-tab li:hover {
+    border-bottom: 2px solid #155FAA;
+    color: #333;
+}
+.top-foot .my-tab .hover {
+     border-bottom: 2px solid #155FAA;
+     font-weight: bold;
+     color: #333;
+    cursor: default;
+ }
+.my-tab .badge {
+    padding: 2px 6px;
+    margin-left: 5px;
+    background: #ccc;
+}
+.my-bottom {
+    padding: 0 22px 40px;
+}
+.my-bottom h1 {
+    margin: 20px 0;
+    font-size: 20px;
+    line-height: 20px;
+}
+.my-bottom h1 a {
+    font-size: 12px;
+}
+.my-bottom li {
+    border-bottom: 1px solid #f5f5f5;
+}
+.my-bottom li .comments {
+    display: inline-block;
+    width: 58px;
+    height: 30px;
+    margin: 0 10px 0 0;
+    padding: 0 10px;
+    background-color: #fff;
+    border: 1px solid #f5f5f5;
+    border-radius: 4px;
+    line-height: 30px;
+    text-align: center;
+    color: #666;
+    font-size: 15px;
+}
+.my-bottom .metas {
+    margin: 15px 0;
+}
+.my-bottom .metas span {
+    color: #666;
+}
+
+.more {
+    font-size: 12px;
+    cursor: pointer;
+}
+.more:focus {
+    outline: none;
+}
+.main-right > div {
+    border-bottom: 1px solid #eee;
+}
+.main-right > div:last-of-type {
+    border-bottom: none;
+}
+.main-right h4 {
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+.main-right img {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.hot {
+    margin: 30px 0;
+    color: #666;
+}
+.hot:first-of-type {
+    margin: 0;
+}
+.hot div {
+    margin-bottom: 25px;
+}
+.hot div a {
+    font-size: 12px;
+}
+.hot div p {
+    font-size: 12px;
+    color: #999;
+}
+
+.modal-header {
+    margin-bottom: 0!important;
+    padding-bottom: 0;
+}
+.modal-body {
+    padding-top: 5px;
+}
+.myFollows-list li {
+    margin: 10px 0;
+    border-bottom: 1px solid #f1f1f1;
+    padding-bottom: 10px;
+}
+.myFollows-list li:last-of-type {
+    border-bottom: none;
+}
+.myFollows-list a {
+    display: inline-block;
+    line-height: 25px;
+}
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 500px;
+    }
+}

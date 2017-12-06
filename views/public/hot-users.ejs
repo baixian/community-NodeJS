@@ -1,0 +1,7 @@
+<% users.forEach(function(user, index) { %>
+<div>
+    <img class="pull-left" src="<%= user.avatar%>" alt="">
+    <a href="/user/<%= user.name %>"><%= user.name %></a></span>
+    <p>积 分 : <%= user.score%> , 发 表 : <%= user.article_count %></p>
+</div>
+<% }) %>

@@ -1,0 +1,168 @@
+
+main {
+    margin-top: 30px;
+
+}
+main .container {
+    border: 1px solid #E6E6E6;
+    border-radius: 3px;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.6)!important;
+    min-height: 500px;
+}
+.main-left {
+    padding: 0;
+
+}
+.main-right {
+    padding: 20px 20px 0;
+    margin-left: -1px;
+    border-left: 1px solid #e6e6e6;
+
+}
+.title {
+    height: 70px;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px 20px;
+}
+.title .discover {
+    color: #000;
+    font-size: 20px;
+    margin-top: 12px;
+}
+.title .tab li {
+    float: left;
+    font-size: 14px;
+    padding: 0 12px 7px;
+    margin: 30px 3px 0;
+}
+.title .tab li:hover {
+    border-bottom: 2px solid #155FAA;
+}
+.main-left .hover {
+    border-bottom: 2px solid #155FAA;
+    font-weight: bold;
+    cursor: default;
+}
+.main-left .hover a {
+    cursor: default;
+    text-decoration: none;
+}
+.title .tab a {
+    color: #666;
+}
+.body {
+    padding: 0 20px 30px;
+}
+.body .read h3 {
+    margin: 20px 0;
+    line-height: 20px;
+}
+.body .read h3 a {
+    border: none!important;
+    background-color: #5bbf5a;
+    color: #fff;
+    font-size: 12px;
+    display: inline-block;
+    padding: 6px 12px;
+    font-weight: 400;
+    text-align: center;
+    border-radius: 4px;
+}
+.body .read h3 a:hover {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+.body li {
+    padding: 0 0 12px 0;
+    border-bottom: 1px solid #eee;
+    color: #666;
+    margin-top: 12px;
+}
+.body li:first-of-type {
+    margin-top: 0;
+}
+.body li:last-child {
+    border-bottom: none;
+}
+.body li p {
+    margin: 0;
+}
+.body .read li .sure {
+    min-width: 64px;
+    height: 24px;
+    padding: 0 10px;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 12px;
+    border: none!important;
+    background-color: #59b0ff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.body .read .sure a {
+    color: #fff;
+}
+.hide {
+    display: none;
+}
+.body .unread h3 {
+    margin: 20px 0;
+}
+.body .unread h3 a {
+    margin: 20px 0;
+    font-size: 20px;
+    line-height: 20px;
+    color: #333;
+}
+
+.more {
+    font-size: 12px;
+}
+.main-right > div {
+    border-bottom: 1px solid #eee;
+}
+.main-right > div:last-of-type {
+    border-bottom: none;
+}
+.main-right h4 {
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+.main-right .message div {
+    margin-bottom: 20px;
+}
+.main-right .message a {
+    font-size: 13px;
+}
+.main-right .message p {
+    margin-top: 30px;
+    padding-bottom: 20px;
+    color: #999;
+}
+.main-right img {
+    /*width: 30px;*/
+    /*height: 30px;*/
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.hot div {
+    margin-bottom: 25px;
+}
+.hot div a {
+    font-size: 12px;
+}
+.hot div p {
+    font-size: 12px;
+    color: #999;
+}
+.btn {
+    color: #666;
+}
+.btn:active, .btn.active {
+    cursor: default;
+    background: #499ef3;
+    border: 1px solid #499ef3;
+    color: #fff;
+}
